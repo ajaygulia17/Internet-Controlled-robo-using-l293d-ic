@@ -14,12 +14,12 @@
             }
             function left(){
                 var pin = [1, 2, 3, 4];
-                var val = ['LOW', 'HIGH', 'HIGH', 'LOW']
+                var val = ['HIGH', 'LOW', 'LOW', 'HIGH']
                 digitalMultiWrite(pin,val);
             }
             function right(){
                 var pin = [1, 2, 3, 4];
-                var val = ['HIGH', 'LOW', 'LOW', 'HIGH']
+                var val = ['LOW', 'HIGH', 'HIGH', 'LOW']
                 digitalMultiWrite(pin,val);
             }
             function back(){
