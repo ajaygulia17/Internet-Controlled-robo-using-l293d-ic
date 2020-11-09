@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>LED Control</title>
+        <title>Robo</title>
         <script type="text/javascript" src="https://cloud.boltiot.com/static/js/boltCommands.js"></script>
         <script>
         setKey('{{ApiKey}}','{{Name}}');
         </script>
         <script>
+            var count = 0;
+            function enable(btn){
+                var property = document.getElementById(btn);
+                if (count%2 == 0){
+                    digitalWrite(0,'HIGH');
+                    property.style.backgroundColor = "#008000"
+                }
+                else{
+                    digitalWrite(0,'LOW');
+                    property.style.backgroundColor = "#FF0000"
+                }
+                count = count+1;
+            }
             function front(){
                 var pin = [1, 2, 3, 4];
                 var val = ['HIGH', 'LOW', 'HIGH', 'LOW']
@@ -36,11 +49,14 @@
     </head>
     <body>
         <center>
-
-        <button onclick="front();" style="height:50px;width:50px">Front</button><br><br>
+            <input type="button" style="height:50px; width:100px;" id="enable" value = "ON/Off"  onclick="enable('enable');"/>
+        <br><br>
+        <button onclick="front();" style="height:50px;width:50px">Front</button>
+        <br><br>
         <button onclick="left();" style="height:50px;width:50px">Left</button>
         <button onclick="stop();" style="height:50px;width:50px">Stop</button>
-        <button onclick="right();" style="height:50px;width:50px">Right</button><br><br>
+        <button onclick="right();" style="height:50px;width:50px">Right</button>
+        <br><br>
         <button onclick="back();" style="height:50px;width:50px">Back</button>
         
         </center>
